@@ -5,26 +5,36 @@
 class Moshdrop < Formula
   desc "Keep mosh. Just drop files. Drag-and-drop file upload for mosh sessions."
   homepage "https://github.com/rrrrrrrrrricoxi/moshdrop"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
 
   depends_on "mosh"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.1.0/moshdrop_1.1.0_darwin_amd64.tar.gz"
-    sha256 "74a2e01f00a6b7481519aff2478ec7b3a732b20e7d662f1202166b70fba14fc7"
+    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.0/moshdrop_1.2.0_darwin_amd64.tar.gz"
+    sha256 "d0033842a34b5f0584f66b498f784d09c09f0b7a42fae8ef10bb7b3c181a9057"
 
     define_method(:install) do
       bin.install "moshdrop"
+      libexec.install "MoshdropNotifier.app"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.1.0/moshdrop_1.1.0_darwin_arm64.tar.gz"
-    sha256 "e40a5caddae8d1a5e645f74c777dbc4b7cbdd977bdcc44adff8726e3c16fad87"
+    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.0/moshdrop_1.2.0_darwin_arm64.tar.gz"
+    sha256 "7432d4aa10bdfc5a6ddce6f866eaf2a63a61fcce44fa275c1541f208e3d61c4d"
 
     define_method(:install) do
       bin.install "moshdrop"
+      libexec.install "MoshdropNotifier.app"
     end
+  end
+
+  def caveats
+    <<~EOS
+      Late uploads are held for explicit copying. Run moshdrop pending locally.
+      Optional Copy path notifications: moshdrop notifications setup (macOS 13+).
+      The helper is ad-hoc signed, not notarized; no service or login item is installed.
+    EOS
   end
 end
