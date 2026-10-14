@@ -5,15 +5,15 @@
 class Moshdrop < Formula
   desc "Keep mosh. Just drop files. Drag-and-drop file upload for mosh sessions."
   homepage "https://github.com/rrrrrrrrrricoxi/moshdrop"
-  version "1.2.0"
+  version "1.2.1"
   license "MIT"
 
   depends_on "mosh"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.0/moshdrop_1.2.0_darwin_amd64.tar.gz"
-    sha256 "d0033842a34b5f0584f66b498f784d09c09f0b7a42fae8ef10bb7b3c181a9057"
+    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.1/moshdrop_1.2.1_darwin_amd64.tar.gz"
+    sha256 "f646d32cd07a9743ed6b2bdabf283d6db5363e70d93517c5ffbc6fa467a3713d"
 
     define_method(:install) do
       bin.install "moshdrop"
@@ -21,8 +21,8 @@ class Moshdrop < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.0/moshdrop_1.2.0_darwin_arm64.tar.gz"
-    sha256 "7432d4aa10bdfc5a6ddce6f866eaf2a63a61fcce44fa275c1541f208e3d61c4d"
+    url "https://github.com/rrrrrrrrrricoxi/moshdrop/releases/download/v1.2.1/moshdrop_1.2.1_darwin_arm64.tar.gz"
+    sha256 "cbcb0471aa747f6338e54f0c730a05b1d1573e21441f39fe52a22c7afa51a31f"
 
     define_method(:install) do
       bin.install "moshdrop"
